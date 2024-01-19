@@ -18,10 +18,7 @@ RUN apk add --no-cache \
 WORKDIR /code
 
 # Copy the code source
-COPY ./src /code/src
-COPY ./test /code/test
-COPY CMakeLists.txt /code/CMakeLists.txt
-COPY ./utility /code/utility
+COPY . /code/
 
 # Build the project dependencies oatpp
 RUN ./utility/install-oatpp-modules.sh
