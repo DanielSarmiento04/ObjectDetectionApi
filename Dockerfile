@@ -20,7 +20,7 @@ WORKDIR /code
 # Copy the code source
 COPY ./src /code/src
 COPY ./test /code/test
-COPY ./CMakeLists.txt /code/CMakeLists.txt
+COPY .CMakeLists.txt /code/CMakeLists.txt
 COPY ./utility /code/utility
 
 # Build the project dependencies oatpp
