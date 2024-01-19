@@ -25,8 +25,7 @@ COPY . /code/
 RUN ./utility/install-oatpp-modules.sh
 
 # Build the project
-RUN mkdir -p /code/build
-WORKDIR /code/build
+RUN mkdir -p /code/build && cd /code/build
 RUN ls ..
 
 RUN cmake ..
