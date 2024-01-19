@@ -10,9 +10,10 @@ RUN apk add --no-cache \
     alpine-sdk \
     dpkg \
     cmake \
-    ccache \
-    python3 
-
+    ccache 
+    
+RUN apk update \
+  && apk upgrade 
 
 # Set the working directory
 WORKDIR /code
