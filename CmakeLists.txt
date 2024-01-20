@@ -16,6 +16,7 @@ add_library(${project_name}-lib
 ## link libs
 
 find_package(oatpp 1.3.0 REQUIRED)
+find_package(OpenCV REQUIRED)
 
 target_link_libraries(${project_name}-lib
         PUBLIC oatpp::oatpp
