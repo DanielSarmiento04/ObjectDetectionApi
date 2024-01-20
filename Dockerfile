@@ -1,19 +1,25 @@
-FROM alpine:3.14
+FROM ubuntu:20.04
 
-
-RUN apk update \
-  && apk upgrade 
-
-RUN apk add --no-cache \
-    clang \
-    clang-dev \
-    alpine-sdk \
-    dpkg \
-    cmake \
-    ccache 
-    
-RUN apk update \
-  && apk upgrade 
+RUN apt-get update \
+      && apt-get install -y \
+          software-properties-common \
+          wget \
+      && add-apt-repository -y ppa:ubuntu-toolchain-r/test \
+      && apt-get update \
+      && apt-get install -y \
+          make \
+          git \
+          curl \
+          vim \
+          vim-gnome \
+      && apt-get install -y cmake=3.5.1-1ubuntu3 \
+      && apt-get install -y \
+          gcc-4.9 g++-4.9 gcc-4.9-base \
+          gcc-4.8 g++-4.8 gcc-4.8-base \
+          gcc-4.7 g++-4.7 gcc-4.7-base \
+          gcc-4.6 g++-4.6 gcc-4.6-base \
+      && update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.9 100 \
+      && update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.9 100
 
 ADD . /code/
 
@@ -23,7 +29,7 @@ WORKDIR /code
 RUN ./utility/install-oatpp-modules.sh
 
 # Build the project
-RUN cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_C_COMPILER=clang . \
+RUN cmake . \
     && make 
     # && make install
 
