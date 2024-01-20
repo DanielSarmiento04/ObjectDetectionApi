@@ -29,7 +29,7 @@ jobs:
       run: |
        mkdir build
        cd build
-       cmake -DCMAKE_BUILD_TYPE=$BUILD_TYPE..
+       cmake -B ${{github.workspace}} -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
 
 
 
