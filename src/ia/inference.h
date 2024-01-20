@@ -26,7 +26,7 @@ class Inference
 {
 public:
     Inference(const std::string &onnxModelPath, const cv::Size &modelInputShape = {640, 640}, const std::string &classesTxtFile = "", const bool &runWithCuda = false);
-    std::vector<Detection> proccess_image(const cv::Mat &input);
+    std::vector<Detection> process(const cv::Mat &input);
 
 private:
     void loadClassesFromFile();
@@ -47,7 +47,7 @@ private:
     float modelScoreThreshold{0.45};      // is the threshold for the score (confidence * class probability)
     float modelNMSThreshold{0.50};        // is the probability threshold for the non-maximum suppression algorithm
 
-    bool letterBoxForSquare = true; // if true, the image will be letterboxed to fit the model input shape
+    bool letterBoxForSquare = true; // if true, the image will be letter boxed to fit the model input shape
 
     cv::dnn::Net net;
 };
