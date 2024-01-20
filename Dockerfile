@@ -15,23 +15,17 @@ RUN apk add --no-cache \
 RUN apk update \
   && apk upgrade 
 
-# Set the working directory
-WORKDIR /code
+ADD . /code/
 
-# Copy the code source
-COPY . /code/
+WORKDIR /code
 
 # Build the project dependencies oatpp
 RUN ./utility/install-oatpp-modules.sh
 
 # Build the project
-RUN mkdir -p /code/build
-WORKDIR /code/build
-RUN ls .
-
-RUN cmake ..
-RUN make
-
+RUN cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_C_COMPILER=clang . \
+    && make 
+    # && make install
 
 EXPOSE 8000 8000
 
