@@ -21,6 +21,7 @@ find_package(OpenCV 4.8.1 REQUIRED)
 target_link_libraries(${project_name}-lib
         PUBLIC oatpp::oatpp
         PUBLIC oatpp::oatpp-test
+        PUBLIC ${OpenCV_LIBS}
 )
 
 target_include_directories(${project_name}-lib PUBLIC src)
