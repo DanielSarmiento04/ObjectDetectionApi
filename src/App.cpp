@@ -16,7 +16,7 @@ void run() {
 
   /* Create MyController and add all of its endpoints to router */
   router->addController(std::make_shared<BaseRoute>());
-  router->addController(std::make_shared<IamgeAnalyzeRoute>());
+  router->addController(std::make_shared<ImageAnalyzeRoute>());
   router->addController(std::make_shared<MyController>());
   
   /* Get connection handler component */
