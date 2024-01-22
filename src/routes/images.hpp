@@ -23,6 +23,8 @@
 
 // DTO'S
 #include "models/base_dto.hpp"
+#include "models/inference_dto.hpp"
+#include "models/responses_dto.hpp"
 
 // native dependencies
 #include "iostream"
@@ -66,7 +68,6 @@ public:
             REQUEST(std::shared_ptr<IncomingRequest>, request) // configure the request management
     ) 
     {
-
         /* create multipart object */
         multipart::PartList multipart(request->getHeaders());
 
@@ -91,14 +92,25 @@ public:
         }
         OATPP_LOGD("part", "name=%s, location=%s", image_file->getName()->c_str(), image_file->getPayload()->getLocation()->c_str())
 
-
         cv::Mat image = cv::imread(image_file->getPayload()->getLocation()->c_str(), cv::IMREAD_COLOR);
 
-        std::vector<Detection> output = inference.process(image);
+        std::vector<Detection> results = inference.process(image);
 
-        int detections = output.size();
+        int detections = results.size();
+        OATPP_LOGD("Image router ", "detections=%d", detections);
 
-        return createResponse(Status::CODE_200, "post images");
+        List<Object<InferenceModel>> response;
+        for(auto &result: results)
+        {
+            InferenceModel inf;
+            inf.class_id = result.class_id;
+            inf.confidence = result.confidence;
+            inf.className = result.className;
+            // inf.bbox = result.bbox;
+            response->push_back(inf);
+        }
+
+        return createDtoResponse(Status::CODE_200, response);
     }
 
 };
