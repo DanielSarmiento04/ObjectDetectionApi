@@ -11,12 +11,13 @@
 
 #include OATPP_CODEGEN_BEGIN(ApiController) //<-- Begin Codegen
 
+// namespace multipart = oatpp::web::mi;
 
 class IamgeAnalyzeRoute : public oatpp::web::server::api::ApiController
 {
 
 private:
-    const oatpp::data::mapping::type::String m_root = "/images";
+    const oatpp::String m_root = "/images";
 
 public:
     /*
@@ -35,9 +36,15 @@ public:
 
         return createResponse(Status::CODE_200, "images");
     }
+ 
+    ENDPOINT("POST", m_root, root,   
+        REQUEST(std::shared_ptr<IncomingRequest>, request)) 
+    {
+
+    }
 
 };
 
 #include OATPP_CODEGEN_END(ApiController) //<-- End Codegen
 
-#endif /* AppComponent_hpp */
+#endif /*   */

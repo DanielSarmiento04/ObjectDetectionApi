@@ -3,6 +3,7 @@
         "__availability": "cpp",
         "charconv": "cpp",
         "string": "cpp",
-        "vector": "cpp"
+        "vector": "cpp",
+        "__config": "cpp"
     }
 }

@@ -10,7 +10,8 @@ RUN apk add --no-cache \
     alpine-sdk \
     dpkg \
     cmake \
-    ccache 
+    ccache \
+    wget
     
 RUN apk update \
   && apk upgrade 
@@ -21,6 +22,9 @@ WORKDIR /code
 
 # Build the project dependencies oatpp
 RUN ./utility/install-oatpp-modules.sh
+# Build OpenCv dependencies
+RUN ./utility/install-opencv.sh
+
 
 # build  the project
 RUN mkdir -p /code/build \

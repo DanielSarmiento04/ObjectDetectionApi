@@ -23,14 +23,13 @@ public:
   {}
 public:
   
-  ENDPOINT("GET", "/", root) {
+  ENDPOINT("GET", "/hello", root) {
     auto dto = MyDto::createShared();
     dto->statusCode = 200;
     dto->message = "Hello World!";
     return createDtoResponse(Status::CODE_200, dto);
   }
   
-  // TODO Insert Your endpoints here !!!
   
 };
 
