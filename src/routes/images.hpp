@@ -18,6 +18,9 @@
 #include <opencv2/core.hpp>    // Basic OpenCV structures (cv::Mat)
 #include <opencv2/videoio.hpp> // Video write
 
+// Custom extensions
+#include "ia/inference.h"
+
 // DTO'S
 #include "models/base_dto.hpp"
 
@@ -34,6 +37,8 @@ class ImageAnalyzeRoute : public oatpp::web::server::api::ApiController
 
 private:
     const oatpp::String m_root = "/images";
+    const std::string project_path = "/Users/josedanielsarmientoblanco/Desktop/hobby/api_image_manipulation/";
+    Inference inference;
 
 public:
     /*
@@ -41,7 +46,7 @@ public:
     */
     ImageAnalyzeRoute(
             OATPP_COMPONENT(std::shared_ptr<ObjectMapper>, objectMapper)
-    ) : oatpp::web::server::api::ApiController(objectMapper){}
+    ) : oatpp::web::server::api::ApiController(objectMapper) , inference(project_path + "yolov8n.onnx", cv::Size(640, 480)){}
 
 public:
 
@@ -89,34 +94,9 @@ public:
 
         cv::Mat image = cv::imread(image_file->getPayload()->getLocation()->c_str(), cv::IMREAD_COLOR);
 
-        cv::imwrite("./image.jpg", image);
-        // /* list all parts and locations to corresponding temporary files */
-        // auto parts = multipart.getAllParts();
-        // for(auto& p : parts) {
-        //     OATPP_LOGD("part", "name=%s, location=%s", p->getName()->c_str(), p->getPayload()->getLocation()->c_str())
-        // }
+        std::vector<Detection> output = inference.process(image);
 
-        // /* Prepare multipart container. */
-        // auto multipart = std::make_shared<multipart::PartList>(request->getHeaders());
-
-        // /* Read multipart body */
-        // multipart::Reader multipartReader(multipart.get());
-
-        // /* Configure to stream part with name "part1" to file */
-        // multipartReader.setPartReader("image", multipart::createInMemoryPartReader(256 /* max-data-size */));
-
-
-        // /* Read multipart body */
-        // request->transferBody(&multipartReader);
-
-        // /* Print value of "part1" */
-        // auto image_file = multipart->getNamedPart("image");
-
-        // /* Assert part is not null */
-
-        // OATPP_LOGD("Multipart", "part1='%s'", image_file->getInMemoryData()->c_str());
-
-
+        int detections = output.size();
 
         return createResponse(Status::CODE_200, "post images");
     }
