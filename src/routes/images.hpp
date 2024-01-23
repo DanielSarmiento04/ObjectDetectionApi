@@ -99,14 +99,13 @@ public:
         int detections = results.size();
         OATPP_LOGD("Image router ", "detections=%d", detections);
 
-        List<Object<InferenceModel>> response;
+        List<Object<InferenceModel>> response = List<Object<InferenceModel>>::createShared();
         for(auto &result: results)
         {
-            InferenceModel inf;
-            inf.class_id = result.class_id;
-            inf.confidence = result.confidence;
-            inf.className = result.className;
-            // inf.bbox = result.bbox;
+            Object<InferenceModel>  inf;
+            inf->class_id = result.class_id;
+            inf->confidence = result.confidence;
+            inf->className = result.className;
             response->push_back(inf);
         }
 
