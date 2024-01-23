@@ -60,7 +60,22 @@ RUN mkdir /tmp && cd /tmp && \
 RUN unzip /tmp/opencv.zip -d /tmp && \
   unzip /tmp/opencv_contrib.zip -d /tmp
 
-RUN rm /tmp.opencv.zip && rm /tmp.opencv_contrib.zip
+RUN rm /tmp/opencv.zip && rm /tmp/opencv_contrib.zip
+
+WORKDIR /tmp/opencv-4.8.1
+
+RUN mkdir build && cd build && \
+  cmake -D CMAKE_BUILD_TYPE=RELEASE \
+  -D CMAKE_INSTALL_PREFIX=/usr/local \
+  -D OPENCV_EXTRA_MODULES_PATH=/tmp/opencv_contrib-4.8.1/modules \
+  -D CMAKE_C_COMPILER=/usr/bin/clang \
+  -D CMAKE_CXX_COMPILER=/usr/bin/clang++ \
+  -D CMAKE_INSTALL_PREFIX=/usr/local \
+  -D INSTALL_PYTHON_EXAMPLES=OFF \
+  -D INSTALL_C_EXAMPLES=OFF \
+  -D WITH_FFMPEG=ON \
+  -D WITH_TBB=ON \
+  ..
 
 # WORKDIR /code
 # Build the project dependencies oatpp
