@@ -29,6 +29,7 @@ Oat++ is a C++ web framework designed to build high-performance and scalable web
 
 > Note that actually this project is tested using opencv 4.8.1 
 
+It is a open source computer vision library designed to provide a comprehensive set of tools for image and video processing. Developed in C++ and with bindings available for various programming languages, including `Python`, `javascript` and `java`. OpenCV is widely used in both academic and industrial settings for a range of applications. Its features include image and video manipulation, object detection, facial recognition, feature extraction, camera calibration, and machine learning integration.
 
 ## What is Yolo and Yolo v8?
 
@@ -53,7 +54,6 @@ To run this project there are two way to compile the solve, the best way to comp
 ```
 > it almost support yolo v5  only make sure that image size is `640x480`.
 
-Note that you need to 
 
 2. Cmake:
 
