@@ -1,7 +1,7 @@
 # **Object Detection Api**
 
-<div >
-<img alt="C++" src="https://img.shields.io/badge/C++-17-blue.svg?style=flat&logo=c%2B%2B"> <img alt="Onnx-runtime" src="https://img.shields.io/badge/OnnxRuntime-717272.svg?logo=Onnx&logoColor=white">
+<div align="center" >
+    <img alt="C++" src="https://img.shields.io/badge/C++-17-blue.svg?style=flat&logo=c%2B%2B"> <img alt="Onnx-runtime" src="https://img.shields.io/badge/OnnxRuntime-717272.svg?logo=Onnx&logoColor=white">
 </div>
 
 
@@ -12,6 +12,7 @@
 ## Table of Contents
 - [What is OAT++](#what-is-oat)
 - [What is OpenCV](#what-is-opencv)
+- [What is Yolo and Yolo v8?](#what-is-yolo-and-yolo-v8)
 - [Setup](#setup)
 - [References](#references)
 
@@ -27,6 +28,14 @@ Oat++ is a C++ web framework designed to build high-performance and scalable web
 ## What is OpenCV?
 
 > Note that actually this project is tested using opencv 4.8.1 
+
+
+## What is Yolo and Yolo v8?
+
+
+YOLO (You Only Look Once) is a popular object detection model known for its speed and accuracy. It is a model designed based on SSD architecture. With the passage some group of research was improved this architecture to make faster and update the precision.
+
+Yolov8 is an implementation by [Ultralytics](https://docs.ultralytics.com) group, 
 
 
 ## SetUP
@@ -47,7 +56,7 @@ To run this project there are two way to compile the solve, the best way to comp
 
     build the opencv library, will depend ind most cases of your hardware and software installed, but take consider that it project your the dnn component of opencv and it require to compile with ProtoBuf
 
-    If your are using macos and you are use brew as package manager, the las version `4.9.0` don't use protobuf, please install the last 4.8.1 
+    If your are using macos and you are use brew as package manager, the las version `4.9.0` don't use protobuf, please install the last `4.8.1`
     
     ```bash 
         brew install --build-from-source ./opencv.rb    
@@ -92,6 +101,8 @@ To run this project there are two way to compile the solve, the best way to comp
 [2] Bradski, G. (2000). The OpenCV Library. Dr. Dobb&#x27;s Journal of Software Tools.
 
 [3] Stryzhevskyi, L., & Mokroß, B.-A. (n.d.). OATPP/OATPP: 🌱light and powerful C++ web framework for highly scalable and resource-efficient web application. it’s zero-dependency and easy-portable. GitHub. https://github.com/oatpp/oatpp 
+
+[4] Kundu, R. (2023, January 17). Yolo algorithm for object detection explained [+examples]. YOLO Algorithm for Object Detection Explained [+Examples]. https://www.v7labs.com/blog/yolo-object-detection 
 
 
 https://github.com/petronetto/opencv-alpine/tree/master
