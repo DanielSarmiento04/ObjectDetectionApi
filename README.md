@@ -7,7 +7,7 @@
 
 ## Abstract
 
-
+Object detections is a common computer vision task used in most common applications. This project leverages a combination of Oat++, OpenCV, and YOLOv8 over c++ 17 to create a robust Object Detection API.
 
 ## Table of Contents
 - [What is OAT++](#what-is-oat)
@@ -23,11 +23,11 @@ Oat++ is a C++ web framework designed to build high-performance and scalable web
 - Important Notes:
 1. Compatibility with `SQLite`, `PostgreSQL` and `MongoDB`.
 2. High demand supported (5 million concurrent).
-3. Zero Dependency
+3. Zero Dependency.
 
 ## What is OpenCV?
 
-> Note that actually this project is tested using opencv 4.8.1 
+> Note that actually this project is tested using opencv 4.8.1.
 
 It is a open source computer vision library designed to provide a comprehensive set of tools for image and video processing. Developed in C++ and with bindings available for various programming languages, including `Python`, `javascript` and `java`. OpenCV is widely used in both academic and industrial settings for a range of applications. Its features include image and video manipulation, object detection, facial recognition, feature extraction, camera calibration, and machine learning integration.
 
@@ -52,7 +52,7 @@ To run this project there are two way to compile the solve, the best way to comp
     pip install ultralytics
     yolo export model=yolov8n.pt format=onnx imgsz=640,480  
     ```
-> it almost support yolo v5  only make sure that image size is `640x480`.
+> it almost supports yolo v5  only make sure that image size is `640x480`.
 
 
 2. Cmake:
@@ -117,4 +117,4 @@ To run this project there are two way to compile the solve, the best way to comp
 [4] Kundu, R. (2023, January 17). Yolo algorithm for object detection explained [+examples]. YOLO Algorithm for Object Detection Explained [+Examples]. https://www.v7labs.com/blog/yolo-object-detection 
 
 
-https://github.com/petronetto/opencv-alpine/tree/master
+<!-- https://github.com/petronetto/opencv-alpine/tree/master -->
