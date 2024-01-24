@@ -1,16 +1,19 @@
-# api_image_manipulation
+# **Object Detection Api**
 
 <div >
+<img alt="C++" src="https://img.shields.io/badge/C++-17-blue.svg?style=flat&logo=c%2B%2B"> <img alt="Onnx-runtime" src="https://img.shields.io/badge/OnnxRuntime-717272.svg?logo=Onnx&logoColor=white">
 </div>
 
-<img alt="C++" src="https://img.shields.io/badge/C++-17-blue.svg?style=flat&logo=c%2B%2B"> 
-<img alt="Onnx-runtime" src="https://img.shields.io/badge/OnnxRuntime-717272.svg?logo=Onnx&logoColor=white">
 
 ## Abstract
 
 
 
-
+## Table of Contents
+- [What is OAT++](#what-is-oat)
+- [What is OpenCV](#what-is-opencv)
+- [Setup](#setup)
+- [References](#references)
 
 ## What is oat++?
 
@@ -24,6 +27,26 @@ Oat++ is a C++ web framework designed to build high-performance and scalable web
 ## What is OpenCV?
 
 > Note that actually this project is tested using opencv 4.8.1 
+
+
+## SetUP
+
+To run this project there are two way to compile the solve, the best way to compatibility is using docker, and the second is build the solution using cmake as package involve solution.
+
+1. Cmake:
+
+    build the oat++ library, to see all cmake params, please go to this [link](https://oatpp.io/docs/installation/unix-linux/)
+    
+    ```bash
+        git clone https://github.com/oatpp/oatpp.git
+        cd oatpp
+        mkdir build && cd build
+        cmake --build . --config Release 
+        sudo make install
+    ```
+
+    
+
 
 
 ## References
