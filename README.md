@@ -35,14 +35,27 @@ Oat++ is a C++ web framework designed to build high-performance and scalable web
 
 YOLO (You Only Look Once) is a popular object detection model known for its speed and accuracy. It is a model designed based on SSD architecture. With the passage some group of research was improved this architecture to make faster and update the precision.
 
-Yolov8 is an implementation by [Ultralytics](https://docs.ultralytics.com) group, 
+Yolov8 is an implementation by [Ultralytics](https://docs.ultralytics.com) group.
 
 
 ## SetUP
 
 To run this project there are two way to compile the solve, the best way to compatibility is using docker, and the second is build the solution using cmake as package involve solution.
 
-1. Cmake:
+
+1. Download the model 
+
+```
+    conda create --name object_detection python=3.11 -y
+    conda activate object_detection
+    pip install ultralytics
+    yolo export model=yolov8n.pt format=onnx imgsz=640,480  
+```
+> it almost support yolo v5  only make sure that image size is `640x480`.
+
+Note that you need to 
+
+2. Cmake:
 
     build the oat++ library, to see all cmake params, please go to this [link](https://oatpp.io/docs/installation/unix-linux/)
     
