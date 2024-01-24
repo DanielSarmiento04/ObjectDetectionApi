@@ -1,13 +1,13 @@
 # **Object Detection Api**
 
-<div align="center" >
+<div align="left" >
     <img alt="C++" src="https://img.shields.io/badge/C++-17-blue.svg?style=flat&logo=c%2B%2B"> <img alt="Onnx-runtime" src="https://img.shields.io/badge/OnnxRuntime-717272.svg?logo=Onnx&logoColor=white">
 </div>
 
 
 ## Abstract
 
-Object detections is a common computer vision task used in most common applications. This project leverages a combination of Oat++, OpenCV, and YOLOv8 over c++ 17 to create a robust Object Detection API.
+Object detections is a common computer vision task used in most common applications. This project leverages a combination of Oat++, OpenCV, and YOLOv8 over c++ 17 to create a robust Object Detection API. The objective of this repository is make a scalable object detections api build in c++17, to do it, this project use Docker and cmake to ease the development process.
 
 ## Table of Contents
 - [What is OAT++](#what-is-oat)
