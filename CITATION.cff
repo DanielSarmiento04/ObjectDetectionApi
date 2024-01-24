@@ -1,0 +1,30 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: ObjectDetectionApi
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: 'Jose Daniel '
+    family-names: Sarmiento Blanco
+    email: josedanielsarmiento219@gmail.com
+repository-code: 'https://github.com/DanielSarmiento04/ObjectDetectionApi'
+abstract: >-
+  Object detections is a common computer vision task used in
+  most common applications. This project leverages a
+  combination of Oat++, OpenCV, and YOLOv8 over c++ 17 to
+  create a robust Object Detection API. The objective of
+  this repository is make a scalable object detections api
+  build in c++17, to do it, this project use Docker and
+  cmake to ease the development process.
+keywords:
+  - cpp17
+  - yolov8
+  - computer vision
+  - oat
+license: MIT
+version: 1.0.0
+date-released: '2024-01-25'
