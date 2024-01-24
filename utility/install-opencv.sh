@@ -1,14 +1,22 @@
 ##########################################################
+#!/bin/sh
 
-cd /tmp
-# ## install opencv
+rm -rf tmp
 
-OPENCV_VERSION="4.8.0"
+mkdir tmp
+cd tmp
+
+## install opencv
+OPENCV_VERSION="4.8.1"
 MODULE_NAME="opencv"
 
+mkdir /opt && cd /opt && \
+  wget -O ${MODULE_NAME}.zip https://github.com/opencv/opencv/archive/${OPENCV_VERSION}.zip && \
+  wget -O ${MODULE_NAME}_contrib.zip https://github.com/opencv/opencv_contrib/archive/${OPENCV_VERSION}.zip
 
 
-# wget -O ${MODULE_NAME}.zip https://github.com/opencv/opencv/archive/${OPENCV_VERSION}.zip
+unzip -o ${MODULE_NAME}.zip -d ${MODULE_NAME}
+unzip -o ${MODULE_NAME}_contrib.zip -d ${MODULE_NAME}
 # wget -O opencv_contrib.zip https://github.com/opencv/opencv_contrib/archive/${OPENCV_VERSION}.zip \
 
 

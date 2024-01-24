@@ -43,6 +43,7 @@ RUN apk add --no-cache \
   openblas-dev@edgecomm \
   openjpeg-dev \
   openssl \
+  openjpeg-dev \
   tiff-dev \
   unzip \
   zlib-dev
@@ -74,6 +75,7 @@ RUN mkdir build && cd build && \
   -D INSTALL_PYTHON_EXAMPLES=OFF \
   -D INSTALL_C_EXAMPLES=OFF \
   -D WITH_FFMPEG=ON \
+  -D OPENJPEG_LIBRARIES=/usr/lib/libopenjp2.so \
   -D WITH_TBB=ON \
   ..
 
