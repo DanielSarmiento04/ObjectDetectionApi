@@ -45,7 +45,7 @@ To run this project there are two way to compile the solve, the best way to comp
         sudo make install
     ```
 
-    build the opencv library, will depend ind most cases of your hardware and integration, but take consider that it project your the dnn component of opencv and it require to compile with ProtoBuf
+    build the opencv library, will depend ind most cases of your hardware and software installed, but take consider that it project your the dnn component of opencv and it require to compile with ProtoBuf
 
     If your are using macos and you are use brew as package manager, the las version `4.9.0` don't use protobuf, please install the last 4.8.1 
     
@@ -54,8 +54,32 @@ To run this project there are two way to compile the solve, the best way to comp
     ```
 
     Another SO
-    ```
     
+    ```bash
+        OPENCV_VERSION="4.8.1"
+        MODULE_NAME="opencv"
+
+        wget -O ${MODULE_NAME}.zip https://github.com/opencv/opencv/archive/${OPENCV_VERSION}.zip && \
+        wget -O ${MODULE_NAME}_contrib.zip https://github.com/opencv/opencv_contrib/archive/${OPENCV_VERSION}.zip
+        
+        unzip -o ${MODULE_NAME}.zip -d ${MODULE_NAME}
+        unzip -o ${MODULE_NAME}_contrib.zip -d ${MODULE_NAME}
+
+        cd ${MODULE_NAME}-${OPENCV_VERSION}
+
+        cmake -D CMAKE_BUILD_TYPE=RELEASE \
+        -D CMAKE_INSTALL_PREFIX=/usr/local \
+        -D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib-4.8.1/modules \
+        -D CMAKE_C_COMPILER=/usr/bin/clang \
+        -D CMAKE_CXX_COMPILER=/usr/bin/clang++ \
+        -D CMAKE_INSTALL_PREFIX=/usr/local \
+        -D INSTALL_PYTHON_EXAMPLES=OFF \
+        -D INSTALL_C_EXAMPLES=OFF \
+        -D WITH_FFMPEG=ON \
+        -D OPENJPEG_LIBRARIES=/usr/lib/libopenjp2.so \
+        -D WITH_TBB=ON \
+        ..
+
     ```
 
     
