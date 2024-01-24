@@ -50,9 +50,9 @@ To run this project there are two way to compile the solve, the best way to comp
     conda create --name object_detection python=3.11 -y
     conda activate object_detection
     pip install ultralytics
-    yolo export model=yolov8n.pt format=onnx imgsz=640,480  
+    yolo export model=yolov8n.pt format=onnx imgsz=640,640  
     ```
-> it almost supports yolo v5  only make sure that image size is `640x480`.
+> it almost supports yolo v5  only make sure that image size is `640`.
 
 
 2. Cmake:

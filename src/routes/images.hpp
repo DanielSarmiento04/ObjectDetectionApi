@@ -48,7 +48,7 @@ public:
     */
     ImageAnalyzeRoute(
             OATPP_COMPONENT(std::shared_ptr<ObjectMapper>, objectMapper)
-    ) : oatpp::web::server::api::ApiController(objectMapper) , inference(project_path + "yolov8n.onnx", cv::Size(640, 480)){}
+    ) : oatpp::web::server::api::ApiController(objectMapper) , inference(project_path + "yolov8n.onnx", cv::Size(640, 640)){}
 
 public:
 
