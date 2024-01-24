@@ -45,6 +45,19 @@ To run this project there are two way to compile the solve, the best way to comp
         sudo make install
     ```
 
+    build the opencv library, will depend ind most cases of your hardware and integration, but take consider that it project your the dnn component of opencv and it require to compile with ProtoBuf
+
+    If your are using macos and you are use brew as package manager, the las version `4.9.0` don't use protobuf, please install the last 4.8.1 
+    
+    ```bash 
+        brew install --build-from-source ./opencv.rb    
+    ```
+
+    Another SO
+    ```
+    
+    ```
+
     
 
 
