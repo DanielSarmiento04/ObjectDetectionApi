@@ -5,7 +5,6 @@
     * 
     * The model is loaded in the constructor and the inference is run in the proccess_image method
     * 
-
 */
 Inference::Inference(const std::string &onnxModelPath, const cv::Size &modelInputShape, const std::string &classesTxtFile, const bool &runWithCuda)
 {

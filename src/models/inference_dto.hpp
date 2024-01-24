@@ -17,8 +17,12 @@ class InferenceModel : public oatpp::DTO {
     DTO_FIELD(Int32, class_id);
     DTO_FIELD(String, className);
     DTO_FIELD(Float32, confidence);
-    // DTO_FIELD(Vector<Int32>, bbox);
-  
+    
+    DTO_FIELD(Int32, x);
+    DTO_FIELD(Int32, y);
+    DTO_FIELD(Int32, width);
+    DTO_FIELD(Int32, height);
+    
 };
 
 #include OATPP_CODEGEN_END(DTO)

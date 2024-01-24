@@ -107,6 +107,13 @@ public:
             result->className = results[i].className;
             result->confidence = results[i].confidence;
             result->class_id = results[i].class_id;
+            
+            auto bbox = results[i].box;
+            result->x = bbox.x;
+            result->y = bbox.y;
+            result->width = bbox.width;
+            result->height = bbox.height;
+
          
             list_result->push_back(result);
         }

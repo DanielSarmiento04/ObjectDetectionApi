@@ -1,6 +1,14 @@
 # api_image_manipulation
 
+<div >
+</div>
+
+<img alt="C++" src="https://img.shields.io/badge/C++-17-blue.svg?style=flat&logo=c%2B%2B"> 
+<img alt="Onnx-runtime" src="https://img.shields.io/badge/OnnxRuntime-717272.svg?logo=Onnx&logoColor=white">
+
 ## Abstract
+
+
 
 
 
@@ -13,9 +21,9 @@ Oat++ is a C++ web framework designed to build high-performance and scalable web
 2. High demand supported (5 million concurrent).
 3. Zero Dependency
 
-## What is Open Cv?
+## What is OpenCV?
 
-> Note that actually this project don't support Opencv 4.9.0, Only between 4.5.0 and 4.8.1
+> Note that actually this project is tested using opencv 4.8.1 
 
 
 ## References
