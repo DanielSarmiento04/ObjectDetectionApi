@@ -103,6 +103,19 @@ To run this project there are two way to compile the solve, the best way to comp
     ..
     ```
 
+    Build the api
+
+    ```bash
+    mkdir build && cd build  
+    cmake ..
+    make
+    ```
+
+    Run api
+    ```
+    ./api_machine_learning-exe
+    ```
+
     
 
 
