@@ -80,27 +80,27 @@ RUN wget -O opencv.zip https://github.com/opencv/opencv/archive/${OPENCV_VERSION
 RUN mkdir /opencv/opencv/build
 WORKDIR /opencv/opencv/build
 
-# RUN cmake -D CMAKE_BUILD_TYPE=RELEASE \
-#  -D CMAKE_INSTALL_PREFIX=/usr/local \
-#  -D INSTALL_PYTHON_EXAMPLES=ON \
-#  -D INSTALL_C_EXAMPLES=ON \
-#  -D OPENCV_ENABLE_NONFREE=ON \
-#  -D OPENCV_GENERATE_PKGCONFIG=ON \
-#  -D OPENCV_EXTRA_MODULES_PATH=/opencv/opencv_contrib/modules \
-#  -D PYTHON_EXECUTABLE=/usr/local/bin/python \
-#  -D BUILD_EXAMPLES=ON .. \
-#     && make -j 6 && make install && ldconfig
+RUN cmake -D CMAKE_BUILD_TYPE=RELEASE \
+ -D CMAKE_INSTALL_PREFIX=/usr/local \
+ -D INSTALL_PYTHON_EXAMPLES=ON \
+ -D INSTALL_C_EXAMPLES=ON \
+ -D OPENCV_ENABLE_NONFREE=ON \
+ -D OPENCV_GENERATE_PKGCONFIG=ON \
+ -D OPENCV_EXTRA_MODULES_PATH=/opencv/opencv_contrib/modules \
+ -D PYTHON_EXECUTABLE=/usr/local/bin/python \
+ -D BUILD_EXAMPLES=ON .. \
+    && make -j 6 && make install && ldconfig
     
 
 # Build the project dependencies oatpp
-# ADD . /code/
+ADD . /code/
 
-# RUN apt-get update
+RUN apt-get update
 
-# WORKDIR /code/build/
-# RUN cmake ..
-# RUN make -j4
+WORKDIR /code/build/
+RUN cmake ..
+RUN make -j4
 
-# EXPOSE 8000 8000
+EXPOSE 8000 8000
 
-# ENTRYPOINT ["./api_machine_learning-exe"]
+ENTRYPOINT ["./api_machine_learning-exe"]
