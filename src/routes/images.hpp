@@ -39,7 +39,6 @@ class ImageAnalyzeRoute : public oatpp::web::server::api::ApiController
 
 private:
     const oatpp::String m_root = "/images";
-    const std::string project_path = "/Users/josedanielsarmientoblanco/Desktop/hobby/api_image_manipulation/";
     Inference inference;
 
 public:
@@ -48,7 +47,7 @@ public:
     */
     ImageAnalyzeRoute(
             OATPP_COMPONENT(std::shared_ptr<ObjectMapper>, objectMapper)
-    ) : oatpp::web::server::api::ApiController(objectMapper) , inference(project_path + "yolov8n.onnx", cv::Size(640, 640)){}
+    ) : oatpp::web::server::api::ApiController(objectMapper) , inference("../yolov8n.onnx", cv::Size(640, 640)){}
 
 public:
 
