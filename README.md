@@ -136,6 +136,13 @@ To run this project there are two way to compile the solve, the best way to comp
     ```
 
 
+4. Test 
+
+    ```bash
+    curl --location --request POST 'localhost:8000/images' \
+    --form 'image=@"image_file"'
+    ```
+
 ## References
 [1] Jocher, G., Chaurasia, A., & Qiu, J. (2023). Ultralytics YOLO (Version 8.0.0) [Computer software]. https://github.com/ultralytics/ultralytics
 
