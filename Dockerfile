@@ -1,5 +1,7 @@
 FROM alpine:3.14
 
+LABEL mantainer="Daniel Sarmiento <josedanielsarmiento219@gmail.com>"
+
 RUN apk update
 
 # Install packages
