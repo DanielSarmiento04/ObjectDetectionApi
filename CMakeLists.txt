@@ -18,7 +18,10 @@ add_library(${project_name}-lib
 ## link libs
 
 find_package(oatpp 1.3.0 REQUIRED)
-find_package(OpenCV 4.8.1 REQUIRED)
+
+# Set custom OpenCV_DIR here
+set(OpenCV_DIR /usr/lib/cmake/opencv4)
+find_package(OpenCV 4.5.0 REQUIRED)
 # find_package(Protobuf REQUIRED)
 
 target_link_libraries(${project_name}-lib

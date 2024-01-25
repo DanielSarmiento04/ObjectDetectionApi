@@ -117,6 +117,20 @@ To run this project there are two way to compile the solve, the best way to comp
     ```
 
     
+3. Docker:
+
+    The docker image take up approximately `1.72GB` using alpine base image  and default opencv package distributed by pkg.
+
+    ```bash
+    docker build object_detection_api .
+    ```
+
+    If you want to build opencv it's possibles you need ubuntu to better package compatibility, note that it work with amd processors `2.66GB`.
+
+    ```bash
+    docker build --platform=linux/amd64 -t object_detection_api -f ./dockerfile_custom
+    ```
+
 
 
 
