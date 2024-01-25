@@ -80,10 +80,9 @@ RUN cmake -D CMAKE_BUILD_TYPE=RELEASE \
 # Build the project dependencies oatpp
 ADD . /code/
 
-RUN ./utility/install-oatpp-modules.sh
-
 WORKDIR /code
 
+RUN ./utility/install-oatpp-modules.sh
 
 # FROM alpine:3.14
 
