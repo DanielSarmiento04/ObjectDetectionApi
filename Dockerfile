@@ -76,6 +76,14 @@ RUN cmake -D CMAKE_BUILD_TYPE=RELEASE \
  -D BUILD_EXAMPLES=ON .. \
     && make -j$(nproc) && make install && ldconfig
     
+
+# Build the project dependencies oatpp
+RUN ./utility/install-oatpp-modules.sh
+ADD . /code/
+
+WORKDIR /code
+
+
 # FROM alpine:3.14
 
 # RUN apk update \
