@@ -14,7 +14,7 @@ RUN apt-get clean && \
     apt-get update && \
     apt-get install -y --no-install-recommends --fix-missing \
         build-essential binutils \
-        ca-certificates cmake cmake-qt-gui curl \
+        ca-certificates curl \
         dbus-x11 \
         ffmpeg \
         gdb gcc g++ gfortran git \
@@ -36,7 +36,6 @@ RUN apt-get clean && \
 RUN apt-get -qq update \
     && apt-get -qq install -y --no-install-recommends \
         build-essential \
-        cmake \
         git \
         wget \
         unzip \
@@ -52,6 +51,22 @@ RUN apt-get -qq update \
         libavformat-dev \
         libpq-dev 
 
+# cmake cmake-qt-gui 
+
+RUN apt-get update \
+  && apt-get -y install build-essential \
+  && apt-get install -y wget \
+  && rm -rf /var/lib/apt/lists/* \
+  && wget https://github.com/Kitware/CMake/releases/download/v3.24.1/cmake-3.24.1-Linux-x86_64.sh \
+      -q -O /tmp/cmake-install.sh \
+      && chmod u+x /tmp/cmake-install.sh \
+      && mkdir /opt/cmake-3.24.1 \
+      && /tmp/cmake-install.sh --skip-license --prefix=/opt/cmake-3.24.1 \
+      && rm /tmp/cmake-install.sh \
+      && ln -s /opt/cmake-3.24.1/bin/* /usr/local/bin
+
+COPY ./utility/install-oatpp-modules.sh /install-oatpp-modules.sh
+RUN /install-oatpp-modules.sh
 
 WORKDIR /opencv
 RUN wget -O opencv.zip https://github.com/opencv/opencv/archive/${OPENCV_VERSION}.zip \
@@ -65,34 +80,27 @@ RUN wget -O opencv.zip https://github.com/opencv/opencv/archive/${OPENCV_VERSION
 RUN mkdir /opencv/opencv/build
 WORKDIR /opencv/opencv/build
 
-RUN cmake -D CMAKE_BUILD_TYPE=RELEASE \
- -D CMAKE_INSTALL_PREFIX=/usr/local \
- -D INSTALL_PYTHON_EXAMPLES=ON \
- -D INSTALL_C_EXAMPLES=ON \
- -D OPENCV_ENABLE_NONFREE=ON \
- -D OPENCV_GENERATE_PKGCONFIG=ON \
- -D OPENCV_EXTRA_MODULES_PATH=/opencv/opencv_contrib/modules \
- -D PYTHON_EXECUTABLE=/usr/local/bin/python \
- -D BUILD_EXAMPLES=ON .. \
-    && make -j$(nproc) && make install && ldconfig
+# RUN cmake -D CMAKE_BUILD_TYPE=RELEASE \
+#  -D CMAKE_INSTALL_PREFIX=/usr/local \
+#  -D INSTALL_PYTHON_EXAMPLES=ON \
+#  -D INSTALL_C_EXAMPLES=ON \
+#  -D OPENCV_ENABLE_NONFREE=ON \
+#  -D OPENCV_GENERATE_PKGCONFIG=ON \
+#  -D OPENCV_EXTRA_MODULES_PATH=/opencv/opencv_contrib/modules \
+#  -D PYTHON_EXECUTABLE=/usr/local/bin/python \
+#  -D BUILD_EXAMPLES=ON .. \
+#     && make -j 6 && make install && ldconfig
     
 
 # Build the project dependencies oatpp
-ADD . /code/
+# ADD . /code/
 
-RUN apt-get update
+# RUN apt-get update
 
-COPY ./utility/install-oatpp-modules.sh /install-oatpp-modules.sh
-RUN /install-oatpp-modules.sh
+# WORKDIR /code/build/
+# RUN cmake ..
+# RUN make -j4
 
-WORKDIR /code
+# EXPOSE 8000 8000
 
-
-
-WORKDIR /code/build/
-RUN cmake ..
-RUN make -j4
-
-EXPOSE 8000 8000
-
-ENTRYPOINT ["./api_machine_learning-exe"]
+# ENTRYPOINT ["./api_machine_learning-exe"]
