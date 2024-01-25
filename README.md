@@ -14,6 +14,7 @@ Object detections is a common computer vision task used in most common applicati
 - [What is OpenCV](#what-is-opencv)
 - [What is Yolo and Yolo v8?](#what-is-yolo-and-yolo-v8)
 - [Setup](#setup)
+- [Test](#test)
 - [References](#references)
 
 ## What is oat++?
@@ -136,11 +137,13 @@ To run this project there are two way to compile the solve, the best way to comp
     ```
 
 
-4. Test 
+## Test 
+    
+- Request:   
 
     ```bash
     curl --location --request POST 'localhost:8000/images' \
-    --form 'image=@"image_file"'
+    --form 'image=@"image_file.jpg"'
     ```
 
 ## References
