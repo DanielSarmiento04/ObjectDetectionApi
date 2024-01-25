@@ -78,8 +78,9 @@ RUN cmake -D CMAKE_BUILD_TYPE=RELEASE \
     
 
 # Build the project dependencies oatpp
-RUN ./utility/install-oatpp-modules.sh
 ADD . /code/
+
+RUN ./utility/install-oatpp-modules.sh
 
 WORKDIR /code
 
