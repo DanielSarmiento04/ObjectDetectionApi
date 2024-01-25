@@ -7,7 +7,7 @@ WORKDIR /opt/build
 ARG DEBIAN_FRONTEND=noninteractive
 
 # OpenCV Version
-ARG OPENCV_VERSION="4.8.0"
+ARG OPENCV_VERSION="4.8.1"
 
 # Install build dependencies
 RUN apt-get clean && \
@@ -51,6 +51,16 @@ RUN apt-get -qq update \
         libopenjp2-7-dev \
         libavformat-dev \
         libpq-dev 
+
+
+WORKDIR /opencv
+RUN wget -O opencv.zip https://github.com/opencv/opencv/archive/${OPENCV_VERSION}.zip \
+    && wget -O opencv_contrib.zip https://github.com/opencv/opencv_contrib/archive/${OPENCV_VERSION}.zip \
+    && unzip opencv.zip \
+    && unzip opencv_contrib.zip \
+    && mv opencv-${OPENCV_VERSION} opencv \
+    && mv opencv_contrib-${OPENCV_VERSION} opencv_contrib
+
 
 
 # FROM alpine:3.14
