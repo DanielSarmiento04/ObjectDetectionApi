@@ -108,7 +108,7 @@ To run this project there are two way to compile the solve, the best way to comp
 
     ```bash
     mkdir build && cd build  
-    cmake ..
+    cmake -D OpenCV_DIR=/usr/lib/cmake/opencv4 ..
     make
     ```
 
