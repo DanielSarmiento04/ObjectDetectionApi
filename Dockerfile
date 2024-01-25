@@ -62,7 +62,20 @@ RUN wget -O opencv.zip https://github.com/opencv/opencv/archive/${OPENCV_VERSION
     && mv opencv_contrib-${OPENCV_VERSION} opencv_contrib
 
 
+RUN mkdir /opencv/opencv/build
+WORKDIR /opencv/opencv/build
 
+RUN cmake -D CMAKE_BUILD_TYPE=RELEASE \
+ -D CMAKE_INSTALL_PREFIX=/usr/local \
+ -D INSTALL_PYTHON_EXAMPLES=ON \
+ -D INSTALL_C_EXAMPLES=ON \
+ -D OPENCV_ENABLE_NONFREE=ON \
+ -D OPENCV_GENERATE_PKGCONFIG=ON \
+ -D OPENCV_EXTRA_MODULES_PATH=/opencv/opencv_contrib/modules \
+ -D PYTHON_EXECUTABLE=/usr/local/bin/python \
+ -D BUILD_EXAMPLES=ON .. \
+    && make -j$(nproc) && make install && ldconfig
+    
 # FROM alpine:3.14
 
 # RUN apk update \
